@@ -17,6 +17,13 @@ async function main(): Promise<void> {
   const testToken: Contract = await TestTokenFactory.deploy();
   await testToken.deployed();
   console.log('TestToken deployed to: ', testToken.address);
+
+  const ERC721Factory: ContractFactory = await ethers.getContractFactory(
+    'NFT',
+  );
+  const ERC721: Contract = await ERC721Factory.deploy();
+  await ERC721.deployed();
+  console.log('ERC721 deployed to: ', ERC721.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
